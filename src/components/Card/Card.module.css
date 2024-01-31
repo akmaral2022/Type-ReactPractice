@@ -1,0 +1,32 @@
+.Card {
+    padding: 20px;
+    text-align: left;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    width: 600px;
+
+}
+
+.Card h2 {
+    font-size: 22px;
+}
+
+.Card p {
+    word-wrap: break-word;
+}
+
+.todoBox {
+    width: 500px;
+}
+
+.checkbox {
+    border-radius: 10px;
+    height: 25px;
+    width: 25px;
+}
+
+.checkbox:checked {
+    box-shadow: 0px 0px 6px #76c0d6;
+}
