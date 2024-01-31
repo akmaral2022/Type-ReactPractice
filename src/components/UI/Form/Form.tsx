@@ -6,11 +6,7 @@ import CustomButton from '../button/button';
 interface CustomFormProps {
     onTaskAdd: (task: { id: number; title: string, description: string }) => void
 }
-// interface FormProps {
-//     desc: string;
-//     setDesc: (desc: string) => void
-// }
-// : React.FC<FormProps>
+
 const CustomForm: React.FC<CustomFormProps> = ({ onTaskAdd }) => {
 
     const [title, setTitle] = useState("")

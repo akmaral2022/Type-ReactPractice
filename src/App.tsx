@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import CustomForm from './components/UI/Form/Form';
 import AllCard from './components/AllCards/AllCard';
+import styles from './components/UI/select/select.module.css'
 
 const App: React.FC = () => {
   const list = [
@@ -10,28 +11,22 @@ const App: React.FC = () => {
   ];
 
   const [tasks, setTasks] = useState(list);
-  const [filterCompleted, setFilterCompleted] = useState(false);
+  const [filterCompleted, setFilterCompleted] = useState<'all' | 'completed' | 'not completed'>('all');
 
   const handleTaskAdd = (newTask: { id: number; title: string; description: string }) => {
     setTasks((prevTasks) => [...prevTasks, { ...newTask, completed: false }]);
   }
 
   const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value
-    if (value === 'completed') {
-      setFilterCompleted(true);
-      console.log('Сделано');
-    } else if (value === 'not completed') {
-      setFilterCompleted(false);
-      console.log('Не сделано');
-    }
+    const value = e.target.value as 'all' | 'completed' | 'not completed';
+    setFilterCompleted(value);
   }
 
   return (
     <div className='App'>
       <div className='to_do'>
         <CustomForm onTaskAdd={handleTaskAdd} />
-        <select onChange={filterChange}>
+        <select className={styles.selectPlace} onChange={filterChange}>
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="not completed">Not completed</option>

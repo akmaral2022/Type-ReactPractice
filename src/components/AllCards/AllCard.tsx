@@ -10,7 +10,7 @@ interface Tasks {
 
 interface AllCardProps {
     tasks: Tasks[];
-    filterCompleted: boolean;
+    filterCompleted: 'all' | 'completed' | 'not completed';
     onTaskAdd: (newTask: { id: number; title: string; description: string }) => void;
 }
 
@@ -22,18 +22,18 @@ const AllCard: React.FC<AllCardProps> = ({ tasks, filterCompleted, onTaskAdd }) 
     }, [tasks]);
 
     const handleChangeStatus = (taskId: number) => {
-        const updatedTasks = tasks.map(task =>
+        const updatedTasks = filteredTasks.map(task =>
             task.id === taskId ? { ...task, completed: !task.completed } : task
         );
 
         setFilteredTasks(updatedTasks);
     };
 
-
-
-    const filteredTasksToShow = filterCompleted
+    const filteredTasksToShow = filterCompleted === 'completed'
         ? filteredTasks.filter(task => task.completed)
-        : filteredTasks;
+        : filterCompleted === 'not completed'
+            ? filteredTasks.filter(task => !task.completed)
+            : filteredTasks;
 
     return (
         <div>

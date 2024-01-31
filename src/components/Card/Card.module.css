@@ -21,6 +21,23 @@
     width: 500px;
 }
 
+.cardElemts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    width: 150px;
+}
+
+.cardElemts button {
+    background: none;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
 .checkbox {
     border-radius: 10px;
     height: 25px;

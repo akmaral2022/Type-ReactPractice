@@ -8,7 +8,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const CustomButton: React.FC<ButtonProps> = ({ onClick, ...props }) => {
     return (
-        <button onClick={onClick} {...props}>{props.children}</button>
+        <div className='customButton'>
+            <button onClick={onClick} {...props} >{props.children}</button>
+        </div>
     )
 }
 export default CustomButton
