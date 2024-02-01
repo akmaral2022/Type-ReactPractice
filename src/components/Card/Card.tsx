@@ -6,9 +6,10 @@ interface CardProps {
     text: string
     completed?: boolean
     onChangeStatus: () => void
+    onDelete: () => void
 }
 
-const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus }) => {
+const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus, onDelete }) => {
     const handleCheckboxChange = () => {
         onChangeStatus()
     }
@@ -21,7 +22,7 @@ const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus }) =>
             </div>
             <div className={styles.cardElemts}>
                 <input type="checkbox" className={styles.checkbox} checked={completed} onChange={handleCheckboxChange} />
-                <button>Delete<img src={deleteImg} alt='https://icons8.ru/icon/67884/мусор' /></button>
+                <button onClick={onDelete}>Delete<img src={deleteImg} alt='https://icons8.ru/icon/67884/мусор' /></button>
             </div>
         </div>
     )

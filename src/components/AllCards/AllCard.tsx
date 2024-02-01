@@ -12,9 +12,10 @@ interface AllCardProps {
     tasks: Tasks[];
     filterCompleted: 'all' | 'completed' | 'not completed';
     onTaskAdd: (newTask: { id: number; title: string; description: string }) => void;
+    onDeleteTask: (taskIs: number) => void
 }
 
-const AllCard: React.FC<AllCardProps> = ({ tasks, filterCompleted, onTaskAdd }) => {
+const AllCard: React.FC<AllCardProps> = ({ tasks, filterCompleted, onTaskAdd, onDeleteTask }) => {
     const [filteredTasks, setFilteredTasks] = useState<Tasks[]>(tasks);
 
     useEffect(() => {
@@ -38,7 +39,14 @@ const AllCard: React.FC<AllCardProps> = ({ tasks, filterCompleted, onTaskAdd }) 
     return (
         <div>
             {filteredTasksToShow.map((task) => (
-                <Card key={task.id} name={task.title} text={task.description} completed={task.completed} onChangeStatus={() => handleChangeStatus(task.id)} />
+                <Card
+                    key={task.id}
+                    name={task.title}
+                    text={task.description}
+                    completed={task.completed}
+                    onChangeStatus={() => handleChangeStatus(task.id)}
+                    onDelete={() => onDeleteTask(task.id)}
+                />
             ))}
         </div>
     );
