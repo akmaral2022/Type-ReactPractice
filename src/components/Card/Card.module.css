@@ -18,7 +18,26 @@
 }
 
 .todoBox {
-    width: 500px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardInputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardInputs input {
+    margin: 10px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardInputs .cardButtons {
+    flex-direction: column;
 }
 
 .cardElemts {
@@ -27,6 +46,7 @@
     justify-content: space-between;
     align-items: end;
     width: 180px;
+    height: 96px;
 }
 
 .cardElemts button {
@@ -55,6 +75,9 @@
     justify-content: space-between;
 }
 
+.cardButtons img {
+    margin: 0px 5px;
+}
 
 
 .checkbox {
