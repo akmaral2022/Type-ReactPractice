@@ -25,7 +25,12 @@ const App: React.FC = () => {
     const deleteTask = tasks.filter(task => task.id !== taskId)
     setTasks(deleteTask)
   }
-
+  const handleSaveTask = (taskId: number, editedName: string, editedText: string) => {
+    const updatedTasks = tasks.map(task =>
+      task.id === taskId ? { ...task, title: editedName, description: editedText } : task
+    );
+    setTasks(updatedTasks);
+  }
 
 
   const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -42,7 +47,8 @@ const App: React.FC = () => {
           <option value="not completed">Not completed</option>
         </select>
         <h3>Your tasks</h3>
-        <AllCard tasks={tasks} filterCompleted={filterCompleted} onTaskAdd={handleTaskAdd} onDeleteTask={handleDeleteTask} />
+        <AllCard tasks={tasks} filterCompleted={filterCompleted} onTaskAdd={handleTaskAdd} onDeleteTask={handleDeleteTask} onEditTask={handleSaveTask}
+        />
 
       </div>
     </div>

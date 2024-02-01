@@ -67,7 +67,7 @@
 
 .cardElemts button:hover {
     background: #093e69;
-    box-shadow: 2px 2px 3px #116bb6;
+    box-shadow: 2px 2px 3px #fff;
 }
 
 .cardButtons {

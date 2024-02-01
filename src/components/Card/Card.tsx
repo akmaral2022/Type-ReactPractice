@@ -4,15 +4,16 @@ import MyInput from '../UI/input/input';
 // import deleteImg from '../../image/delete.svg'
 
 interface CardProps {
-    id: number
+    id: number;
     name: string;
-    text: string
-    completed?: boolean
-    onChangeStatus: () => void
-    onDelete: () => void
+    text: string;
+    completed?: boolean;
+    onChangeStatus: () => void;
+    onDelete: () => void;
+    onEdit: (id: number, editedName: string, editedText: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus, onDelete }) => {
+const Card: React.FC<CardProps> = ({ id, name, text, completed, onChangeStatus, onDelete, onEdit }) => {
     const [isEdit, setIsEdit] = useState(false)
     const [editedName, setEditedName] = useState(name);
     const [editedText, setEditedText] = useState(text);
@@ -21,10 +22,10 @@ const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus, onDe
         onChangeStatus()
     }
     const handleEditClick = () => {
-
         setIsEdit(true);
     }
     const handleSaveClick = () => {
+        onEdit(id, editedName, editedText)
         setIsEdit(false);
     }
 
