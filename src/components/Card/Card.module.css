@@ -26,13 +26,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
-    width: 150px;
+    width: 180px;
 }
 
 .cardElemts button {
     background: none;
     outline: none;
-    border: none;
+    border: 1px solid #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,12 +41,21 @@
     transition: 0.5s;
     padding: 5px;
     border-radius: 5px;
+    margin: 5px;
+
 }
 
 .cardElemts button:hover {
     background: #093e69;
-
+    box-shadow: 2px 2px 3px #116bb6;
 }
+
+.cardButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 .checkbox {
     cursor: pointer;

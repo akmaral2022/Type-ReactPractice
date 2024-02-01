@@ -1,5 +1,5 @@
 import styles from './Card.module.css';
-import deleteImg from '../../image/delete.svg'
+// import deleteImg from '../../image/delete.svg'
 
 interface CardProps {
     name: string;
@@ -22,7 +22,10 @@ const Card: React.FC<CardProps> = ({ name, text, completed, onChangeStatus, onDe
             </div>
             <div className={styles.cardElemts}>
                 <input type="checkbox" className={styles.checkbox} checked={completed} onChange={handleCheckboxChange} />
-                <button onClick={onDelete}>Delete<img src={deleteImg} alt='https://icons8.ru/icon/67884/мусор' /></button>
+                <div className={styles.cardButtons}>
+                    <button>Change<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/ball-point-pen.png" alt="ball-point-pen" /></button>
+                    <button onClick={onDelete}>Delete<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/filled-trash.png" alt="filled-trash" /></button>
+                </div>
             </div>
         </div>
     )
